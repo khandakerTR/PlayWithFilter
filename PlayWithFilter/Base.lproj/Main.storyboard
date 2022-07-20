@@ -22,9 +22,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="222.5"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gYd-Jc-N5R">
-                                <rect key="frame" x="16" y="238.5" width="343" height="444.5"/>
+                                <rect key="frame" x="16" y="517.5" width="343" height="133.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tvn-FO-5OJ">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tvn-FO-5OJ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -32,7 +32,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="hXc-iA-Ydk" customClass="CustomCollectionViewCell" customModule="PlayWithFilter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="3" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ODi-Uj-0lV">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -68,18 +68,55 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Quw-ag-jru"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mus-tF-jhK">
+                                <rect key="frame" x="16" y="238.5" width="67" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mus-tF-jhK" secondAttribute="height" multiplier="1:1" id="mmx-XJ-ahX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="didTappedOnImportButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3d-9h-APe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex9-ny-tFB">
+                                <rect key="frame" x="292" y="238.5" width="67" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ex9-ny-tFB" secondAttribute="height" multiplier="1:1" id="obv-qP-fhp"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="didTappedOnSaveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U3q-cM-L2s"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="NVR-fG-0Kb">
+                                <rect key="frame" x="14" y="467.5" width="347" height="31"/>
+                                <connections>
+                                    <action selector="didChangedSlideValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ia3-Xr-kaB"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ate-1v-h45" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0wd-S7-tJ5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ex9-ny-tFB" secondAttribute="trailing" constant="16" id="2ka-fa-Vum"/>
+                            <constraint firstItem="gYd-Jc-N5R" firstAttribute="top" secondItem="NVR-fG-0Kb" secondAttribute="bottom" constant="20" id="65y-hn-ONj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NVR-fG-0Kb" secondAttribute="trailing" constant="16" id="7Gk-7G-2ca"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gYd-Jc-N5R" secondAttribute="trailing" constant="16" id="8vF-A8-JTG"/>
+                            <constraint firstItem="Ex9-ny-tFB" firstAttribute="top" secondItem="ate-1v-h45" secondAttribute="bottom" constant="16" id="KBy-OM-ee1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ate-1v-h45" secondAttribute="trailing" id="Kd6-eo-tjR"/>
+                            <constraint firstItem="Mus-tF-jhK" firstAttribute="top" secondItem="ate-1v-h45" secondAttribute="bottom" constant="16" id="NNS-cJ-kiz"/>
                             <constraint firstItem="ate-1v-h45" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NxA-1L-BpS"/>
+                            <constraint firstItem="NVR-fG-0Kb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Shr-y1-2eg"/>
+                            <constraint firstItem="Ex9-ny-tFB" firstAttribute="width" secondItem="Ex9-ny-tFB" secondAttribute="height" multiplier="1:1" id="V6r-vB-p3n"/>
+                            <constraint firstItem="gYd-Jc-N5R" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:5" id="VKX-HD-bPw"/>
+                            <constraint firstItem="Mus-tF-jhK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bK7-og-OzM"/>
                             <constraint firstItem="gYd-Jc-N5R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="d0J-8k-UNc"/>
-                            <constraint firstItem="gYd-Jc-N5R" firstAttribute="top" secondItem="ate-1v-h45" secondAttribute="bottom" constant="16" id="kFR-7U-gGn"/>
-                            <constraint firstItem="gYd-Jc-N5R" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="16" id="nyU-Nx-kZE"/>
+                            <constraint firstAttribute="bottom" secondItem="gYd-Jc-N5R" secondAttribute="bottom" constant="16" id="hNO-yw-Zec"/>
                             <constraint firstItem="ate-1v-h45" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="rJY-hb-jzi"/>
+                            <constraint firstItem="NVR-fG-0Kb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tFW-Fj-352"/>
                         </constraints>
                     </view>
                     <connections>
