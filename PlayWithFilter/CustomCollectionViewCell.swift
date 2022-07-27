@@ -14,5 +14,18 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.imageView.layer.borderWidth = 2
+                self.imageView.layer.borderColor = UIColor.red.cgColor
+                
+            } else {
+                self.imageView.layer.borderWidth = 0
+            }
+        }
     }
 }

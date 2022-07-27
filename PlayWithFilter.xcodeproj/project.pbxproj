@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D79D0742891CCCF004F19A1 /* Filters.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D79D0732891CCCF004F19A1 /* Filters.plist */; };
+		0D79D07A2891DD2C004F19A1 /* sampleImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D79D0792891DD2C004F19A1 /* sampleImage.jpg */; };
 		0D8047992887320D00D71DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8047982887320D00D71DD6 /* AppDelegate.swift */; };
 		0D80479B2887320D00D71DD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80479A2887320D00D71DD6 /* SceneDelegate.swift */; };
 		0D80479D2887320D00D71DD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80479C2887320D00D71DD6 /* ViewController.swift */; };
@@ -17,7 +19,6 @@
 		0D8047BA2887321400D71DD6 /* PlayWithFilterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8047B92887321400D71DD6 /* PlayWithFilterUITests.swift */; };
 		0D8047BC2887321400D71DD6 /* PlayWithFilterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8047BB2887321400D71DD6 /* PlayWithFilterUITestsLaunchTests.swift */; };
 		0D8047C9288734DE00D71DD6 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8047C8288734DE00D71DD6 /* CustomCollectionViewCell.swift */; };
-		0D8047CB2887385500D71DD6 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D8047CA2887385500D71DD6 /* sample.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D79D0732891CCCF004F19A1 /* Filters.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Filters.plist; sourceTree = "<group>"; };
+		0D79D0792891DD2C004F19A1 /* sampleImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sampleImage.jpg; sourceTree = "<group>"; };
 		0D8047952887320D00D71DD6 /* PlayWithFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayWithFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D8047982887320D00D71DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D80479A2887320D00D71DD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		0D8047B92887321400D71DD6 /* PlayWithFilterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithFilterUITests.swift; sourceTree = "<group>"; };
 		0D8047BB2887321400D71DD6 /* PlayWithFilterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWithFilterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0D8047C8288734DE00D71DD6 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		0D8047CA2887385500D71DD6 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +105,11 @@
 		0D8047972887320D00D71DD6 /* PlayWithFilter */ = {
 			isa = PBXGroup;
 			children = (
+				0D79D0732891CCCF004F19A1 /* Filters.plist */,
 				0D8047982887320D00D71DD6 /* AppDelegate.swift */,
 				0D80479A2887320D00D71DD6 /* SceneDelegate.swift */,
 				0D80479C2887320D00D71DD6 /* ViewController.swift */,
-				0D8047CA2887385500D71DD6 /* sample.jpg */,
+				0D79D0792891DD2C004F19A1 /* sampleImage.jpg */,
 				0D80479E2887320D00D71DD6 /* Main.storyboard */,
 				0D8047A12887321300D71DD6 /* Assets.xcassets */,
 				0D8047A32887321300D71DD6 /* LaunchScreen.storyboard */,
@@ -238,9 +241,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D8047A52887321300D71DD6 /* LaunchScreen.storyboard in Resources */,
+				0D79D0742891CCCF004F19A1 /* Filters.plist in Resources */,
 				0D8047A22887321300D71DD6 /* Assets.xcassets in Resources */,
+				0D79D07A2891DD2C004F19A1 /* sampleImage.jpg in Resources */,
 				0D8047A02887320D00D71DD6 /* Main.storyboard in Resources */,
-				0D8047CB2887385500D71DD6 /* sample.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
