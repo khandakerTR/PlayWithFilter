@@ -39,12 +39,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OLG-Be-D3z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="99"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrE-XY-m4o">
-                                                    <rect key="frame" x="43" y="54" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrE-XY-m4o">
+                                                    <rect key="frame" x="38.5" y="104" width="51.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -90,33 +90,23 @@
                                     <action selector="didTappedOnSaveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U3q-cM-L2s"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="NVR-fG-0Kb">
-                                <rect key="frame" x="14" y="517.5" width="347" height="31"/>
-                                <connections>
-                                    <action selector="didChangedSlideValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ia3-Xr-kaB"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ate-1v-h45" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0wd-S7-tJ5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ex9-ny-tFB" secondAttribute="trailing" constant="16" id="2ka-fa-Vum"/>
-                            <constraint firstItem="gYd-Jc-N5R" firstAttribute="top" secondItem="NVR-fG-0Kb" secondAttribute="bottom" constant="20" id="65y-hn-ONj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NVR-fG-0Kb" secondAttribute="trailing" constant="16" id="7Gk-7G-2ca"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gYd-Jc-N5R" secondAttribute="trailing" constant="16" id="8vF-A8-JTG"/>
                             <constraint firstItem="Ex9-ny-tFB" firstAttribute="top" secondItem="ate-1v-h45" secondAttribute="bottom" constant="16" id="KBy-OM-ee1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ate-1v-h45" secondAttribute="trailing" id="Kd6-eo-tjR"/>
                             <constraint firstItem="Mus-tF-jhK" firstAttribute="top" secondItem="ate-1v-h45" secondAttribute="bottom" constant="16" id="NNS-cJ-kiz"/>
                             <constraint firstItem="ate-1v-h45" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NxA-1L-BpS"/>
-                            <constraint firstItem="NVR-fG-0Kb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Shr-y1-2eg"/>
                             <constraint firstItem="Ex9-ny-tFB" firstAttribute="width" secondItem="Ex9-ny-tFB" secondAttribute="height" multiplier="1:1" id="V6r-vB-p3n"/>
                             <constraint firstItem="gYd-Jc-N5R" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:8" id="VKX-HD-bPw"/>
                             <constraint firstItem="Mus-tF-jhK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bK7-og-OzM"/>
                             <constraint firstItem="gYd-Jc-N5R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="d0J-8k-UNc"/>
                             <constraint firstAttribute="bottom" secondItem="gYd-Jc-N5R" secondAttribute="bottom" constant="16" id="hNO-yw-Zec"/>
                             <constraint firstItem="ate-1v-h45" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:1.7" id="rJY-hb-jzi"/>
-                            <constraint firstItem="NVR-fG-0Kb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tFW-Fj-352"/>
                         </constraints>
                     </view>
                     <connections>

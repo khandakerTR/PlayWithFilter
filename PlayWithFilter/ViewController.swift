@@ -11,31 +11,20 @@ import CoreImage
 class ViewController: UIViewController {
     
     @IBOutlet weak var filterCollectionView: UICollectionView!
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            imageView.image = UIImage(named: "sampleImage.jpg", in: Bundle(for: type(of: self)), compatibleWith: nil)
-        }
-    }
+    @IBOutlet weak var imageView: UIImageView!
+    
     var filters = [AnyObject]()
     var context = CIContext()
     var currentFilter = [String : Any]()
     var currentImage = UIImage()
-    var currentSliderValue = 0.0
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
       
         currentImage = UIImage(named: "sampleImage.jpg", in: Bundle(for: type(of: self)), compatibleWith: nil)!
-        filters = readPlistData()
+        imageView.image = currentImage
+        filters = readPlistData(name: "Filters")
         collectionviewFlowlayoutSet()
-        
-
-    }
-    
-    @IBAction func didChangedSlideValue(_ sender: UISlider) {
-        currentSliderValue = Double(sender.value)
-       // applyFilter()
     }
     
     @IBAction func didTappedOnImportButton(_ sender: UIButton) {
@@ -43,14 +32,10 @@ class ViewController: UIViewController {
     
     @IBAction func didTappedOnSaveButton(_ sender: UIButton) {
     }
-    
-    
 }
 
 extension ViewController {
-    
-    func readPlistData()-> [AnyObject] {
-        let name = "Filters"
+    func readPlistData(name: String)-> [AnyObject] {
         let fileName = name.components(separatedBy: ".")[0]
         let url = Bundle.main.url(forResource: fileName, withExtension: "plist")!
         let plistData = try! Data(contentsOf: url)
@@ -58,6 +43,44 @@ extension ViewController {
         return plistProperty as! [AnyObject]
     }
     
+    func collectionviewFlowlayoutSet() {
+        let layout = UICollectionViewFlowLayout()
+        let width = (filterCollectionView.bounds.width - 40) / 5.5
+        layout.itemSize = CGSize(width: width, height: filterCollectionView.bounds.height)
+        layout.scrollDirection = .horizontal
+        filterCollectionView.collectionViewLayout = layout
+    }
+}
+
+//MARK: - UICollectionViewDataSource
+extension ViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filters.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.label.text = "\(indexPath.item + 1)"
+        cell.imageView.image = currentImage
+        return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension ViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        currentFilter = filters[indexPath.item] as! [String : Any]
+        applyFilter()
+    }
+}
+
+//MARK: - Filter Functionality
+extension ViewController {
     func applyFilter() {
         let sourceCIImage = CIImage(image: currentImage)
         let name = currentFilter["filter"] as! String
@@ -66,11 +89,6 @@ extension ViewController {
             return
         }
         guard let filter = CIFilter(name: name) else { return }
-        
-        filter.setValue(sourceCIImage, forKey: kCIInputImageKey)
-        
-        
-        
         filter.setValue(sourceCIImage, forKey: kCIInputImageKey)
             
             for key in self.currentFilter.keys {
@@ -81,10 +99,8 @@ extension ViewController {
                 }
                 
                 if key == "inputRadius" {
-    // value from slider
-                filter.setValue(value, forKey: kCIInputRadiusKey)
-                    
-                    
+                    //can be use value from slider
+                    filter.setValue(value, forKey: kCIInputRadiusKey)
                 }
                 
                 if key == "color" {
@@ -109,8 +125,8 @@ extension ViewController {
                 }
                 
                 if key == "inputAmount" {
-       // slider value
-                        filter.setValue(NSNumber(value: Float(value)!), forKey: kCIInputAmountKey)
+                    //can be use value from slider
+                    filter.setValue(NSNumber(value: Float(value)!), forKey: kCIInputAmountKey)
                     
                 }
                 
@@ -127,7 +143,7 @@ extension ViewController {
                 }
                 
                 if key == "inputScale" {
-                    //value from slider
+                    //can be use value from slider
                     filter.setValue(value, forKey: kCIInputScaleKey)
                 }
                 
@@ -137,41 +153,5 @@ extension ViewController {
             let processedImage = UIImage(cgImage: cgimg)
             self.imageView.image = processedImage
         }
-    }
-}
-
-extension ViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filters.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CustomCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        //cell.label.text = filters[indexPath.item]["name"] as! String
-        cell.imageView.image = currentImage
-        return cell
-    }
-}
-
-extension ViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        //center need
-        currentFilter = filters[indexPath.item] as! [String : Any]
-        applyFilter()
-    }
-}
-
-extension ViewController {
-    func collectionviewFlowlayoutSet() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let width = (filterCollectionView.bounds.width - 40) / 5.5
-        layout.itemSize = CGSize(width: width, height: filterCollectionView.bounds.height)
-        filterCollectionView.collectionViewLayout = layout
     }
 }
